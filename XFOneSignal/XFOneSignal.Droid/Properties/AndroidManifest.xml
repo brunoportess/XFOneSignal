@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.devsistemas.signal" android:installLocation="auto" android:versionCode="1" android:versionName="1.0.0.0">
+	<uses-sdk android:minSdkVersion="15" />
+	<permission android:name="com.devsistemas.signal.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <!-- o android:name é o package name concatenado com a permissao -->
+	<uses-permission android:name="com.devsistemas.signal.permission.C2D_MESSAGE" />
+	<application android:label="OneSignal" android:icon="@drawable/icon">
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <!-- informe aqui embaixo o nome do package name-->
+				<category android:name="com.devsistemas.signal" />
+			</intent-filter>
+		</receiver>
+	</application>
+</manifest>
